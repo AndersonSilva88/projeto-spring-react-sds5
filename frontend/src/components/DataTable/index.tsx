@@ -19,7 +19,7 @@ const DataTable = () => {
     });
 
     useEffect(() => {
-        axios.get(`${BASE_URL}/sales?page=${activePage}&size=20&sort=date,desc`)
+        axios.get(`${BASE_URL}/sales?page=${activePage}&size=10&sort=date,desc`)
             .then(Response => {
                 setPage(Response.data)
             })
@@ -50,7 +50,7 @@ const DataTable = () => {
                                 <td>{item.seller.name}</td>
                                 <td>{item.visited}</td>
                                 <td>{item.deals}</td>
-                                <td>{item.amount.toFixed}</td>
+                                <td>{item.amount.toFixed(2).replace('.', ',')}</td>
                             </tr>
                         ))}
 
